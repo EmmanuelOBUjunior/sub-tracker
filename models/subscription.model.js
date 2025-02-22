@@ -29,7 +29,7 @@ const subscriptionSchema = new mongoose.Schema({
     category:{
         type:String,
         required:[true, "Subscription category is required"],
-        enum: ["entertainment", "health", "fitness", "education", "finance", "other"]
+        enum: ["sports","entertainment", "health", "fitness", "education","lifestyle", "finance", "other"]
     }
 
 }, { timestamps: true });

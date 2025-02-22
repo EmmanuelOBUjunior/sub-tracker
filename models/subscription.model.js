@@ -78,7 +78,17 @@ const subscriptionSchema = new mongoose.Schema(
 );
 
 subscriptionSchema.pre("save", function (next){
+    if(!this.renewalDate){
+        const renewalPeriod={
+            daily: 1,
+            weekly: 7,
+            monthly: 1,
+            yearly: 1
+        }
 
+    this.renewalDate = new Date(this.startDate);
+    this.renewalDate.setDate(this.renewalDate.getDate() + renewalPeriod[this.frequency]);
+    }
 })
 
 const Subscription = mongoose.model("Subscription", subscriptionSchema);

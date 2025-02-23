@@ -26,7 +26,7 @@ const authorize = async(req, res, next) => {
                 message: "Unauthorized"
             })
         }
-
+        req.user = decodedUser
         next()
 
     } catch (error) {

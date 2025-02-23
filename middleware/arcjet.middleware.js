@@ -1,6 +1,6 @@
 import { aj } from "../config/arcjet.js";
 
-export const arcjectMiddleware = async (req, res, next) => {
+const arcjectMiddleware = async (req, res, next) => {
   try {
     const decision = await aj.protect(req);
     if (decision.isDenied()) {
@@ -17,3 +17,5 @@ export const arcjectMiddleware = async (req, res, next) => {
     next(error);
   }
 };
+
+export default arcjectMiddleware

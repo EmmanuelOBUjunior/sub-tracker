@@ -6,12 +6,14 @@ import subscriptionRouter from './routes/subscription.routes.js'
 import connectToDatabase from './database/mongodb.js'
 import errorMiddleware from './middleware/error.middleware.js'
 import cookieParser from 'cookie-parser'
+import arcjectMiddleware from './middleware/arcjet.middleware.js'
 
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
+app.use(arcjectMiddleware)
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/users', userRouter)

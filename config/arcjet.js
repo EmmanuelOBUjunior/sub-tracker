@@ -1,7 +1,7 @@
 import arcjet, {shield, detectBot, tokenBucket} from "@arcjet/node";
 import { ARCJET_KEY } from "./env";
 
-export const aj = arcjet({
+const aj = arcjet({
     key: ARCJET_KEY,
     characteristics: ["ip.src"], // Track requests by IP
     rules: [
@@ -28,3 +28,5 @@ export const aj = arcjet({
       }),
     ],
   });
+
+  export default aj

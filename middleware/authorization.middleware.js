@@ -27,12 +27,15 @@ const authorize = async(req, res, next) => {
             })
         }
 
+        next()
+
     } catch (error) {
         res.status(401).json({
             success: false,
-            message: "Unauthorized"
+            message: "Unauthorized",
+            error: error.message
         })
-        next(error)
+        
     }
 
 }

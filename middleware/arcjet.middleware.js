@@ -8,6 +8,8 @@ export const arcjectMiddleware = async (req, res, next) => {
         res.status(429).json({ message: "Too many requests" });
       if (decision.reason.isBot)
         res.status(403).json({ message: "Bot detected" });
+    
+      return res.status(403).json({message: "Access denied"})
     }
   } catch (error) {
     console.log(`Arcjet Middleware Error: ${error.message}`);

@@ -11,6 +11,7 @@ export const arcjectMiddleware = async (req, res, next) => {
     
       return res.status(403).json({message: "Access denied"})
     }
+    next()
   } catch (error) {
     console.log(`Arcjet Middleware Error: ${error.message}`);
     next(error);

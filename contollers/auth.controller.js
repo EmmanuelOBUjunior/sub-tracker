@@ -44,8 +44,14 @@ export const signUp = async(req,res, next)=>{
     }
 }
 
-export const signIn = (req,res, next)=>{
+export const signIn = async(req,res, next)=>{
+    const {email, password} = req.body
 
+    try {
+        const user = await User.findOne({email})
+    } catch (error) {
+        next(error)
+    }
 }
 
 export const signOut = (req,res, next)=>{

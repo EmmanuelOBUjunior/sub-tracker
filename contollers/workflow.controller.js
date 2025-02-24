@@ -21,6 +21,6 @@ export const sendRemainders = serve(async(context)=>{
 
 const fetchSubscription = async(context, subscriptionId)=>{
     return await context.run('get subscription', ()=>{
-        return Subscription.findById(subscriptionId).populate('user', select:'name email')
+        return Subscription.findById(subscriptionId).populate('user').select('name email')
     })
 }

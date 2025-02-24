@@ -21,9 +21,9 @@ export const sendRemainders = serve(async(context)=>{
     }
 
     for(const daysbefore of REMAINDERS){
-        const remainderDate = renewalDate.subtract(daysbefore, 'day')
+        const reminderDate = renewalDate.subtract(daysbefore, 'day')
 
-        if(remainderDate.isAfter(dayjs)){
+        if(reminderDate.isAfter(dayjs)){
             sleepUntilReminder
         }
     }

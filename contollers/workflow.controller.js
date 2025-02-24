@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 const require = createRequire(import.meta.url)
 const {serve} = require('@upstash/workflow/express')
 
-const REMAINDERS = [7,5,2,1]
+const REMINDERS = [7,5,2,1]
 
 export const sendRemainders = serve(async(context)=>{
     const {subscriptionId} = context.requestPayload

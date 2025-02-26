@@ -41,4 +41,9 @@ const sleepUntilReminder = async(context, label, date)=>{
     await context.sleepUntil(label, date.toDate())
 }
 
-const triggerReminder
+const triggerReminder = async(context, label)=>{
+    console.log(`Triggering reminder ${label}`)
+    return await context.run(()=>{
+        return true
+    })
+}

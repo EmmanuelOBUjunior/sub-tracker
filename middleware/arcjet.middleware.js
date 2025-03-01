@@ -5,9 +5,9 @@ const arcjectMiddleware = async (req, res, next) => {
     const decision = await aj.protect(req, {requested: 1});
     if (decision.isDenied()) {
       if (decision.reason.isRateLimit)
-        res.status(429).json({ message: "Too many requests" });
+        res.json({ message: "Too many requests" });
       if (decision.reason.isBot)
-        res.status(403).json({ message: "Bot detected" });
+        res.json({ message: "Bot detected" });
     
       return res.status(403).json({message: "Access denied"})
     }

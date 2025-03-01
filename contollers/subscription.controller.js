@@ -19,6 +19,7 @@ export const createSubscription = async(req,res, next)=>{
             },
             retries: 0
         })
+        console.log("Workflow run Id",{worflowRunId})
 
         res.status(201).json({
             success: true,

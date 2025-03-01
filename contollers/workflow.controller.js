@@ -1,8 +1,8 @@
 import {createRequire} from 'module'
 import Subscription from '../models/subscription.model.js'
 import dayjs from 'dayjs'
-import { workflowClient } from '../config/qstash'
-import { SERVER_URL } from '../config/env'
+import { workflowClient } from '../config/qstash.js'
+import { SERVER_URL } from '../config/env.js'
 const require = createRequire(import.meta.url)
 const {serve} = require('@upstash/workflow/express')
 

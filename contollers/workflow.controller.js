@@ -1,6 +1,7 @@
 import {createRequire} from 'module'
 import Subscription from '../models/subscription.model'
 import dayjs from 'dayjs'
+import { workflowClient } from '../config/qstash'
 const require = createRequire(import.meta.url)
 const {serve} = require('@upstash/workflow/express')
 
@@ -10,7 +11,9 @@ export const sendReminders = serve(async(context)=>{
     const {subscriptionId} = context.requestPayload
     const subscription = await fetchSubscription(context, subscriptionId)
 
-    await WorkflowClient.
+    await workflowClient.trigger({
+        url: ``
+    })
 
     if(!subscription || subscription.status !== 'active'){
         return

@@ -3,6 +3,6 @@ import { sendReminders } from "../contollers/workflow.controller";
 
 const workflowRouter = Router();
 
-workflowRouter.post('/', sendReminders)
+workflowRouter.post('/subscriptions/reminder', sendReminders)
 
 export default workflowRouter

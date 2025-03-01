@@ -1,5 +1,5 @@
 import {createRequire} from 'module'
-import Subscription from '../models/subscription.model'
+import Subscription from '../models/subscription.model.js'
 import dayjs from 'dayjs'
 import { workflowClient } from '../config/qstash'
 import { SERVER_URL } from '../config/env'

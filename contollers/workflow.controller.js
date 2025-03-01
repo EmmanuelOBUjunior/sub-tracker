@@ -10,6 +10,8 @@ export const sendReminders = serve(async(context)=>{
     const {subscriptionId} = context.requestPayload
     const subscription = await fetchSubscription(context, subscriptionId)
 
+    await WorkflowClient.
+
     if(!subscription || subscription.status !== 'active'){
         return
     }

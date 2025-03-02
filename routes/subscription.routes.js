@@ -5,7 +5,9 @@ import { createSubscription, getSubscriptionById, getSubscriptions, getUserSubsc
 const subscriptionRouter = Router()
 
 subscriptionRouter.get('/', getSubscriptions)
+
 subscriptionRouter.get('/:id', authorize, getSubscriptionById)
+
 subscriptionRouter.get('/user/:id',authorize, getUserSubscriptions)
 subscriptionRouter.post('/', authorize, createSubscription)
 subscriptionRouter.put('/:id', updateSubscription)

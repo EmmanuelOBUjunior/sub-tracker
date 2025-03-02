@@ -45,7 +45,7 @@ export const getUserSubscriptions = async (req, res, next) => {
 
 export const getSubscriptions = async(req,res,next)=>{
   try{
-    const subscriptions = await Subscription.find()
+    const subscriptions = await Subscription.find().populate('user', 'name email')
 
     if(!subscriptions){
       const error = new Error("There are no subscriptions")

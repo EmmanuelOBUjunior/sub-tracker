@@ -91,6 +91,7 @@ export const signOut = (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "User signed out successfully",
+      data: null
     });
   } catch (error) {
     next(error);

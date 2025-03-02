@@ -9,10 +9,15 @@ subscriptionRouter.get('/', getSubscriptions)
 subscriptionRouter.get('/:id', authorize, getSubscriptionById)
 
 subscriptionRouter.get('/user/:id',authorize, getUserSubscriptions)
+
 subscriptionRouter.post('/', authorize, createSubscription)
+
 subscriptionRouter.put('/:id', updateSubscription)
+
 subscriptionRouter.delete('/:id', (req,res)=> res.send({title:'Delete a subscription'}))
+
 subscriptionRouter.put('/:id/cancel', (req,res)=> res.send({title:'Cancel subscription'}))
+
 subscriptionRouter.get('/upcoming-renewals', (req,res)=> res.send({title:'Get all upcoming renewals'}))
 
 

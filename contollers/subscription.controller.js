@@ -80,3 +80,20 @@ export const updateSubscription = async(req,res,next)=>{
     next(error)
   }
 }
+
+
+export const getSubscriptionById = async(req,res,next)=>{
+  try {
+    const subscription = await Subscription.findById(req.params.id).populate('user', 'name email')
+
+    if(!subscription){
+      const error = new Error(`Subscription with id ${req.params.id} not found`)
+      error.status = 404
+      throw error
+    }
+
+    res.status(200).json({success: true, data: subscription})
+  } catch (error) {
+    next(error)
+  }
+}

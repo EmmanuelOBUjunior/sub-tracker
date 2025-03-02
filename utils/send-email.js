@@ -32,5 +32,5 @@ export const sendReminderEmail = async ({ to, type, subscription }) => {
     if(error) return console.log(`Error sending email: ${error.message}`);
 
     console.log(`Email sent successfully: ${info.response}`);
-  }
+  })
 };

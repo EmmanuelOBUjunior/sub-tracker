@@ -92,7 +92,7 @@ export const getSubscriptionById = async(req,res,next)=>{
       throw error
     }
 
-    if(subscription.user.id !== req.user._id){
+    if(subscription.user.id.toString() !== req.user._id.toString()){
       const error = new Error('You are not the owner of this subscription')
       error.status = 403
       throw error

@@ -81,5 +81,12 @@ export const signIn = async(req,res, next)=>{
 }
 
 export const signOut = (req,res, next)=>{
-    
+    try{
+        res.clearCookie("token")
+        res.status(200).json({
+            success: true,
+            message: "User signed out successfully"})
+    }catch(error){
+        next(error)
+    }
 }

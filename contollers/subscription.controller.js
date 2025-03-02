@@ -42,3 +42,19 @@ export const getUserSubscriptions = async (req, res, next) => {
     next(e);
   }
 }
+
+export const getSubscriptions = async(req,res,next)=>{
+  try{
+    const subscriptions = await Subscription.find()
+
+    if(!subscriptions){
+      const error = new Error("There are no subscriptions")
+      error.status = 404
+      throw error
+    }
+    res.status(200).json({success: true, data: subscriptions})
+
+  }catch(error){
+    next(error)
+  }
+}

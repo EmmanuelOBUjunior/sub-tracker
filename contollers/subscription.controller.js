@@ -99,6 +99,7 @@ export const getSubscriptionById = async(req,res,next)=>{
     }
 
     res.status(200).json({success: true, data: subscription})
+    
   } catch (error) {
     next(error)
   }

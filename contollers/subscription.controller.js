@@ -58,3 +58,25 @@ export const getSubscriptions = async(req,res,next)=>{
     next(error)
   }
 }
+
+
+export const updateSubscription = async(req,res,next)=>{
+  try{
+    const {id} = req.params
+    const subscription = await Subscription.findByIdAndUpdate(
+      id,
+      req.body,
+      {runValidators:true, new:true}
+    )
+    if(!subscription){
+      const error = new Error(`Subscription with id ${id} not found`)
+      error.status = 404
+      throw error
+    }
+
+    res.status(200).json({success: true, data: subscription})
+
+  }catch(error){
+    next(error)
+  }
+}

@@ -63,6 +63,14 @@ export const getSubscriptions = async(req,res,next)=>{
 export const updateSubscription = async(req,res,next)=>{
   try{
     const {id} = req.params
+
+    const getSubscription = await Subscription.findById(id)
+
+    if(!getSubscription){
+      const error = new Error(`Subscription with id $id} cannot be found`)
+      error.status = 404
+      throw error
+    }
     
     const subscription = await Subscription.findByIdAndUpdate(
       id,

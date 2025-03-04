@@ -64,7 +64,7 @@ export const updateSubscription = async(req,res,next)=>{
   try{
     const {id} = req.params
 
-    const getSubscription = await Subscription.findById(id)
+    const getSubscription = await Subscription.findById(id).populate('user', 'name email')
 
     if(!getSubscription){
       const error = new Error(`Subscription with id $id} cannot be found`)

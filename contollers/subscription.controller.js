@@ -126,7 +126,8 @@ export const deleteSubscription = async(req, res, next) =>{
     }
     if(getSubscription.user.id !== req.user._id){
       const error = new Error('You are not authorised to delete this subscription')
-      error.status = 
+      error.status = 403
+      throw error
     }
 
   } catch (error) {

@@ -118,7 +118,7 @@ export const getSubscriptionById = async(req,res,next)=>{
 export const deleteSubscription = async(req, res, next) =>{
   try {
     const {id} = req.params
-    const getSubscription = await Subscription.findById(id)
+    const getSubscription = await Subscription.findById(id).populate('user', 'name email')
     if(!getSubscription){
       const error = new Error(`Subscription with id ${id} not found`)
       error.status = 404

@@ -83,12 +83,6 @@ export const updateSubscription = async(req,res,next)=>{
       req.body,
       {runValidators:true, new:true}
     )
-    if(!subscription){
-      const error = new Error(`Subscription with id ${id} not found`)
-      error.status = 404
-      throw error
-    }
-
 
     res.status(200).json({success: true, data: subscription})
 

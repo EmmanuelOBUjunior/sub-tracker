@@ -113,3 +113,23 @@ export const getSubscriptionById = async(req,res,next)=>{
     next(error)
   }
 }
+
+
+export const deleteSubscription = async(req, res, next) =>{
+  try {
+    const {id} = req.params
+    const getSubscription = await Subscription.findById(id)
+    if(!getSubscription){
+      const error = new Error(`Subscription with id ${id} not found`)
+      error.status = 404
+      throw error
+    }
+    if(getSubscription.user.id !== req.user._id){
+      const error = new Error('You are not authorised to delete this subscription')
+      error.status = 
+    }
+
+  } catch (error) {
+    next(error)
+  }
+}

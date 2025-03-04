@@ -63,16 +63,17 @@ export const getSubscriptions = async(req,res,next)=>{
 export const updateSubscription = async(req,res,next)=>{
   try{
     const {id} = req.params
+    console.log("Subscription ID: ", id)
 
     const getSubscription = await Subscription.findById(id).populate('user', 'name email')
-
+    console.log('Subscription Data: ', getSubscription)
     if(!getSubscription){
       const error = new Error(`Subscription with id $id} cannot be found`)
       error.status = 404
       throw error
     }
 
-    if(getSubscription.user.id.toString() !== req.user._id.toString()){
+    if(getSubscription.user._id.toString() !== req.user._id.toString()){
       const error = new Error('You are not authorised to edit this subscription')
       error.status = 403
       throw error

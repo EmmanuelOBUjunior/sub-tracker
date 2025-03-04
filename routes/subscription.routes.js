@@ -12,7 +12,7 @@ subscriptionRouter.get('/user/:id',authorize, getUserSubscriptions)
 
 subscriptionRouter.post('/', authorize, createSubscription)
 
-subscriptionRouter.put('/:id', updateSubscription)
+subscriptionRouter.put('/:id', authorize, updateSubscription)
 
 subscriptionRouter.delete('/:id', (req,res)=> res.send({title:'Delete a subscription'}))
 

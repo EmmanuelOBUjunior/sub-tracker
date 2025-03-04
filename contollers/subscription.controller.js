@@ -72,7 +72,7 @@ export const updateSubscription = async(req,res,next)=>{
       throw error
     }
 
-    if(getSubscription.user.id !== req.user._id){
+    if(getSubscription.user.id.toString() !== req.user._id.toString()){
       const error = new Error('You are not authorised to edit this subscription')
       error.status = 403
       throw error
